@@ -1,31 +1,26 @@
 package co.edu.uniquindio;
 
 public class Camara extends EquipoAudiovisual {
-    private String resolucion;
-    private boolean estabilizador;
+    private final String resolucionMaxima;
+    private final boolean tieneEstabilizador;
 
-    public Camara(int codigo, String marca, EstadoEquipo estadoEquipo,
-                  String resolucion, boolean estabilizador){
-
-        super (codigo, marca, estadoEquipo );
-
-        this.resolucion=resolucion;
-        this.estabilizador=estabilizador;
+    public Camara(String codigo, String marca, String modelo, EstadoEquipo estado,
+                  String resolucionMaxima, boolean tieneEstabilizador) {
+        super(codigo, marca, modelo, estado);
+        this.resolucionMaxima = resolucionMaxima;
+        this.tieneEstabilizador = tieneEstabilizador;
     }
 
-    public String getResolucion() {
-        return resolucion;
+    public String getResolucionMaxima() { return resolucionMaxima; }
+    public boolean tieneEstabilizador() { return tieneEstabilizador; }
+
+    @Override
+    public double calcularCosto(int horas) {
+        double total = 12000.0 * horas;
+        if (tieneEstabilizador) total += 15000;
+        return total;
     }
 
-    public void setResolucion(String resolucion) {
-        this.resolucion = resolucion;
-    }
-
-    public boolean isEstabilizador() {
-        return estabilizador;
-    }
-
-    public void setEstabilizador(boolean estabilizador) {
-        this.estabilizador = estabilizador;
-    }
+    @Override
+    public String getTipo() { return "Cámara"; }
 }

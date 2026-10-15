@@ -1,49 +1,28 @@
+
 package co.edu.uniquindio;
 
 public class OperadorEspecializado {
-    private String id;
-    private String nombre;
-    private String certificacion;
-    private int aniosExperiencia;
+    private final String identificacion;
+    private final String nombreCompleto;
+    private final String certificacion;
+    private final int aniosExperiencia;
 
-    public OperadorEspecializado (String id, String nombre, String certificacion,
-                                  int aniosExperiencia){
-        this.id=id;
-        this.nombre=nombre;
-        this.certificacion=certificacion;
-        this.aniosExperiencia=aniosExperiencia;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCertificacion() {
-        return certificacion;
-    }
-
-    public void setCertificacion(String certificacion) {
+    public OperadorEspecializado(String identificacion, String nombreCompleto,
+                                 String certificacion, int aniosExperiencia) {
+        this.identificacion = identificacion;
+        this.nombreCompleto = nombreCompleto;
         this.certificacion = certificacion;
-    }
-
-    public int getAniosExperiencia() {
-        return aniosExperiencia;
-    }
-
-    public void setAniosExperiencia(int aniosExperiencia) {
         this.aniosExperiencia = aniosExperiencia;
     }
-}
 
+    public String getIdentificacion() { return identificacion; }
+    public String getNombreCompleto() { return nombreCompleto; }
+    public String getCertificacion() { return certificacion; }
+    public int getAniosExperiencia() { return aniosExperiencia; }
+
+    @Override
+    public String toString() {
+        return nombreCompleto + " (ID " + identificacion + ", " + certificacion + ", "
+                + aniosExperiencia + " años)";
+    }
+}
