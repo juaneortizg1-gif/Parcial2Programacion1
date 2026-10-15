@@ -1,46 +1,25 @@
 package co.edu.uniquindio;
 
 public class Cliente {
-    private String nombre;
-    private String cedula;
-    private String telefono;
-    private String correo;
+    private final String nombreCompleto;
+    private final String identificacion;
+    private final String telefono;
+    private final String correo;
 
-    public Cliente(String nombre, String cedula,String telefono, String correo){
-        this.nombre=nombre;
-        this.cedula=cedula;
-        this.telefono=telefono;
-        this.correo=correo;
-
-    }
-    public String getNombre(){
-        return nombre;
-    }
-    public void setNombre(String nombre){
-        this.nombre=nombre;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
+    public Cliente(String nombreCompleto, String identificacion, String telefono, String correo) {
+        this.nombreCompleto = nombreCompleto;
+        this.identificacion = identificacion;
         this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getNombreCompleto() { return nombreCompleto; }
+    public String getIdentificacion() { return identificacion; }
+    public String getTelefono() { return telefono; }
+    public String getCorreo() { return correo; }
+
+    @Override
+    public String toString() {
+        return nombreCompleto + " (ID " + identificacion + ")";
     }
 }

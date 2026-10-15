@@ -1,39 +1,33 @@
 package co.edu.uniquindio;
 
 public abstract class EquipoAudiovisual {
-    protected int codigo;
-    protected String marca;
-    protected EstadoEquipo estadoEquipo;
+    private final String codigo;
+    private final String marca;
+    private final String modelo;
+    private EstadoEquipo estado;
 
-    public EquipoAudiovisual (int codigo, String marca, EstadoEquipo estadoEquipo){
-
-        this.codigo=codigo;
-        this.marca=marca;
-        this.estadoEquipo=estadoEquipo;
-
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
+    public EquipoAudiovisual(String codigo, String marca, String modelo, EstadoEquipo estado) {
         this.codigo = codigo;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
         this.marca = marca;
+        this.modelo = modelo;
+        this.estado = estado;
     }
 
-    public EstadoEquipo getEstadoEquipo() {
-        return estadoEquipo;
+    public String getCodigo() { return codigo; }
+    public String getMarca() { return marca; }
+    public String getModelo() { return modelo; }
+    public EstadoEquipo getEstado() { return estado; }
+    public void setEstado(EstadoEquipo estado) { this.estado = estado; }
+
+    public boolean estaDisponible() {
+        return estado == EstadoEquipo.DISPONIBLE;
     }
 
-    public void setEstadoEquipo(EstadoEquipo estadoEquipo) {
-        this.estadoEquipo = estadoEquipo;
+    public abstract double calcularCosto(int horas);
+    public abstract String getTipo();
+
+    @Override
+    public String toString() {
+        return getTipo() + " [" + codigo + "] " + marca + " " + modelo + " - " + estado;
     }
 }
